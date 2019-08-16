@@ -1,0 +1,7 @@
+#!/bin/bash
+# Search for defined keywords
+
+FILE=${1?Error: no file to search}
+# grep -H -n '\(TODO\|CITE\|REF\|FIXME\)' $FILE
+rg --with-filename --no-heading --only-matching --column \
+  'TODO.*$|[A-Z][^\.]*CITE[^\.]*\.|REF|FIXME' $FILE
